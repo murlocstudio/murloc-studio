@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fafafa;
+    --foreground: #090a0f;
+    
+    --surface: #ffffff;
+    --surface-card: #ffffff;
+    --surface-muted: #f4f4f5;
+    --surface-border: #e4e4e7;
+    
+    --studio-50: #fbfbfc;
+    --studio-100: #f4f4f6;
+    --studio-200: #e4e4e8;
+    --studio-300: #d1d1d8;
+    --studio-400: #9e9ea9;
+    --studio-500: #71717a;
+    --studio-600: #52525b;
+    --studio-700: #3f3f46;
+    --studio-800: #27272a;
+    --studio-900: #18181b;
+    --studio-950: #090a0f;
+
+    --accent: #dc2626;
+    --accent-foreground: #ffffff;
+    --accent-hover: #b91c1c;
+    --accent-subtle: #fef2f2;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Audio Wave Visualizer Bars */
+.audio-bar {
+  transform-origin: bottom;
+  animation: pulse-bar 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-bar {
+  0% {
+    transform: scaleY(0.2);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Micro-noise texture for editorial feel (optional subtle overlay) */
+.editorial-grid-bg {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+.studio-glow {
+  box-shadow: 0 0 50px -10px rgba(220, 38, 38, 0.12);
+}
