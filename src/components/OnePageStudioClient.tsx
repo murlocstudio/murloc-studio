@@ -6,10 +6,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { StudiosSection } from '@/components/sections/StudiosSection';
+import { RatesSection } from '@/components/sections/RatesSection';
 import { EquipmentSection } from '@/components/sections/EquipmentSection';
-import { ServicesSection } from '@/components/sections/ServicesSection';
-import { PriceCalculator } from '@/components/sections/PriceCalculator';
-import { PortfolioSection } from '@/components/sections/PortfolioSection';
 import { StorySection } from '@/components/sections/StorySection';
 import { LocationContactSection } from '@/components/sections/LocationContactSection';
 import { AudioPlayerBar } from '@/components/layout/AudioPlayerBar';
@@ -26,20 +24,12 @@ export const OnePageStudioClient: React.FC<OnePageStudioClientProps> = ({ initia
 
   const { settings, rooms, equipment, services, portfolio } = initialData;
 
-  const handlePlayTrack = (track: PortfolioArtist) => {
-    setActiveTrack(track);
-  };
-
   const handleClosePlayer = () => {
     setActiveTrack(null);
   };
 
-  const handlePackageSelected = (summaryText: string) => {
-    setPrefilledBookingMsg(summaryText);
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-background selection:bg-zinc-900 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#0F1012] text-[#FAF8F5] selection:bg-[#E26D4B] selection:text-white">
       {/* Sticky Header */}
       <Navbar settings={settings} />
 
@@ -47,24 +37,8 @@ export const OnePageStudioClient: React.FC<OnePageStudioClientProps> = ({ initia
       <main className="flex-1">
         <HeroSection settings={settings} />
         <StudiosSection rooms={rooms} equipment={equipment} />
+        <RatesSection services={services} />
         <EquipmentSection equipment={equipment} />
-        
-        {/* Services & Live Price Estimator */}
-        <ServicesSection services={services} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <PriceCalculator
-            rooms={rooms}
-            services={services}
-            onSelectPackage={handlePackageSelected}
-          />
-        </div>
-
-        <PortfolioSection
-          portfolio={portfolio}
-          onPlayTrack={handlePlayTrack}
-          activeTrackId={activeTrack?.id}
-        />
         <StorySection settings={settings} />
         <LocationContactSection
           settings={settings}

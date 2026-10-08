@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Radio, ArrowUpRight, Phone, Disc, Lock } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Phone, Lock, Disc } from 'lucide-react';
 import { SiteSettings } from '@/types/database';
+import { MurlocLogo } from '@/components/ui/MurlocLogo';
 
 interface NavbarProps {
   settings: SiteSettings;
@@ -22,59 +23,38 @@ export const Navbar: React.FC<NavbarProps> = ({ settings }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Stüdyolar', href: '#studios' },
-    { label: 'Ekipmanlar', href: '#equipment' },
-    { label: 'Hizmetler', href: '#services' },
-    { label: 'Portfolyo', href: '#catalog' },
-    { label: 'Hikayemiz', href: '#story' },
-    { label: 'Konum & İletişim', href: '#location' },
+    { label: 'STÜDYOLAR', href: '#studios' },
+    { label: 'ÜCRETLER', href: '#rates' },
+    { label: 'EKİPMANLAR', href: '#equipment' },
+    { label: 'HİKAYE', href: '#story' },
+    { label: 'İLETİŞİM', href: '#location' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-zinc-200/80 shadow-sm py-3.5'
-          : 'bg-white/70 backdrop-blur-xs border-b border-transparent py-5'
+          ? 'bg-[#0F1012]/95 backdrop-blur-md border-b border-white/10 py-3 shadow-vintage'
+          : 'bg-gradient-to-b from-[#0F1012]/90 to-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Studio Brand Logo & Live ON AIR Indicator */}
+          {/* Logo */}
           <Link href="/" className="group flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-zinc-950 text-white flex items-center justify-center font-bold tracking-tighter text-lg shadow-sm group-hover:scale-105 transition-transform">
-              <span className="font-mono text-xs text-red-500 font-black tracking-widest mr-[-2px]">M</span>
-              <Disc className="w-4 h-4 text-zinc-300 animate-spin" style={{ animationDuration: '6s' }} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-base font-extrabold tracking-tight text-zinc-950 uppercase font-display flex items-center gap-1.5">
-                Murloc Studio
-                <span className="text-[10px] text-zinc-400 font-mono font-normal lowercase tracking-normal">
-                  .com
-                </span>
-              </span>
-              <div className="flex items-center gap-1.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-                </span>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 font-semibold">
-                  ON AIR
-                </span>
-              </div>
-            </div>
+            <MurlocLogo size={42} showText={true} textColor="#FAF8F5" />
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-zinc-600 hover:text-zinc-950 transition-colors py-1 relative group"
+                className="text-xs font-mono font-bold tracking-widest text-[#FAF8F5]/80 hover:text-[#E26D4B] transition-colors py-1 relative group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-zinc-950 transition-all duration-200 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#E26D4B] transition-all duration-200 group-hover:w-full" />
               </Link>
             ))}
           </nav>
@@ -83,41 +63,33 @@ export const Navbar: React.FC<NavbarProps> = ({ settings }) => {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/admin"
-              className="p-2 rounded-lg text-zinc-500 hover:text-zinc-900 hover:bg-zinc-100 transition-colors"
-              title="Yönetim Paneli"
+              className="p-2 rounded-lg text-[#FAF8F5]/50 hover:text-[#FAF8F5] hover:bg-white/5 transition-colors"
+              title="CMS Panel"
             >
               <Lock className="w-4 h-4" />
             </Link>
 
-            <a
-              href={`tel:${settings.phone}`}
-              className="hidden xl:flex items-center gap-1.5 text-xs font-mono font-medium text-zinc-600 hover:text-zinc-950 px-2.5 py-1.5 rounded-md hover:bg-zinc-100 transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-zinc-400" />
-              <span>{settings.phone}</span>
-            </a>
-
             <Link
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-zinc-950 text-white hover:bg-zinc-800 transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#E26D4B] text-white hover:bg-[#c95b3b] transition-all shadow-glow active:scale-95"
             >
-              <span>Rezervasyon Yap</span>
+              <span>RANDEVU AL</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex sm:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-2">
             <Link
               href="#contact"
-              className="px-3 py-1.5 rounded-full text-xs font-semibold bg-zinc-950 text-white"
+              className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase bg-[#E26D4B] text-white"
             >
-              Rezervasyon
+              Randevu
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-zinc-700 hover:bg-zinc-100 focus:outline-none"
-              aria-label="Menüyü Aç/Kapat"
+              className="p-2 rounded-lg text-[#FAF8F5] hover:bg-white/10"
+              aria-label="Menü"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -125,53 +97,29 @@ export const Navbar: React.FC<NavbarProps> = ({ settings }) => {
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-zinc-200 px-6 py-6 space-y-4 shadow-xl animate-in slide-in-from-top duration-200">
-          <div className="flex items-center justify-between pb-3 border-b border-zinc-100">
-            <div className="flex items-center gap-2">
-              <Radio className="w-4 h-4 text-red-600 animate-pulse" />
-              <span className="text-xs font-mono font-semibold uppercase text-zinc-600">
-                Murloc Studio İstanbul
-              </span>
-            </div>
-            <Link
-              href="/admin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-xs font-medium text-zinc-500 hover:text-zinc-900 flex items-center gap-1"
-            >
-              <Lock className="w-3 h-3" />
-              CMS Panel
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 gap-2 pt-1">
+        <div className="md:hidden bg-[#0F1012] border-b border-white/10 px-6 py-6 space-y-4 shadow-2xl animate-in slide-in-from-top duration-200">
+          <div className="grid grid-cols-1 gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-semibold text-zinc-800 hover:text-zinc-950 hover:bg-zinc-50 py-2.5 px-3 rounded-lg transition-colors"
+                className="text-sm font-mono font-bold tracking-wider text-[#FAF8F5] hover:text-[#E26D4B] hover:bg-white/5 py-2.5 px-3 rounded-lg transition-colors"
               >
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <div className="pt-3 border-t border-zinc-100 flex flex-col gap-2">
-            <a
-              href={`tel:${settings.phone}`}
-              className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-zinc-100 text-zinc-800 font-medium text-sm"
-            >
-              <Phone className="w-4 h-4 text-zinc-500" />
-              {settings.phone}
-            </a>
+          <div className="pt-3 border-t border-white/10 flex flex-col gap-2">
             <Link
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-zinc-950 text-white font-semibold text-sm"
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#E26D4B] text-white font-mono font-bold text-xs uppercase tracking-wider"
             >
-              <span>Online Rezervasyon & İletişim</span>
+              <span>Hemen Randevu Al</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>

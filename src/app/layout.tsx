@@ -4,7 +4,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { initialSiteSettings } from '@/lib/data/mock-data';
 
 export const viewport: Viewport = {
-  themeColor: '#090A0F',
+  themeColor: '#0F1012',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -13,61 +13,51 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://murlocstudio.com'),
   title: {
-    default: 'Murloc Studio | Profesyonel Müzik ve Kayıt Stüdyosu',
-    template: '%s | Murloc Studio',
+    default: 'Murloc Music Studio | Ankara Kayıt, Prova & Prodüksiyon Stüdyosu',
+    template: '%s | Murloc Music Studio',
   },
   description:
-    'Murloc Studio (murlocstudio) - İstanbul Beşiktaş merkezli profesyonel ses kayıt stüdyosu. SSL 4000E konsol, 7.1.4 Dolby Atmos miksaj, Neve ve Tube-Tech analog zincir, mastering ve 4K podcast prodüksiyonu.',
+    'Murloc Music Studio (@studiomurloc) - Ankara Çankaya Kavaklıdere Tunus Caddesi merkezli profesyonel ses kayıt, grup provası, canlı hücum kayıt ve analog miksaj stüdyosu.',
   keywords: [
+    'studiomurloc',
     'murlocstudio',
-    'Murloc Studio',
-    'müzik stüdyosu',
-    'ses kayıt stüdyosu istanbul',
-    'beşiktaş ses kayıt stüdyosu',
-    'analog miksaj',
-    'dolby atmos mastering',
-    'vokal kaydı',
-    'podcast stüdyosu kiralama',
-    'ekipman kiralama ses',
-    'ssl 4000e',
-    'neve 1073',
+    'Murloc Music Studio',
+    'ankara müzik stüdyosu',
+    'tunus caddesi prova stüdyosu',
+    'kavaklıdere ses kayıt',
+    'hücum kayıt ankara',
+    'ankara prova stüdyosu',
+    'vokal kaydı ankara',
   ],
-  authors: [{ name: 'Murloc Studio', url: 'https://murlocstudio.com' }],
-  creator: 'Murloc Studio',
-  publisher: 'Murloc Studio',
+  authors: [{ name: 'Murloc Music Studio', url: 'https://murlocstudio.com' }],
+  creator: 'Murloc Music Studio',
+  publisher: 'Murloc Music Studio',
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
     url: 'https://murlocstudio.com',
-    siteName: 'Murloc Studio',
-    title: 'Murloc Studio | Profesyonel Müzik ve Kayıt Stüdyosu',
+    siteName: 'Murloc Music Studio',
+    title: 'Murloc Music Studio | Ankara Tunus Caddesi Müzik Stüdyosu',
     description:
-      'Akustiğin ve sanatın buluştuğu nokta. İstanbul Beşiktaş’ta 3 özel tasarım stüdyo, SSL analog konsol ve Dolby Atmos mastering altyapısı.',
+      'Ankara Tunus Caddesi’nde canlı hücum kayıt, grup provaları, analog miksaj ve profesyonel donanım parkuru.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&h=630&q=85',
         width: 1200,
         height: 630,
-        alt: 'Murloc Studio Main Console & Live Room',
+        alt: 'Murloc Music Studio Ankara',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Murloc Studio | Profesyonel Müzik ve Kayıt Stüdyosu',
+    title: 'Murloc Music Studio | Ankara Kayıt & Prova',
     description:
-      'İstanbul Beşiktaş’ta 3 bağımsız stüdyo, SSL analog konsol, Neve preamplifikatörler ve 7.1.4 Dolby Atmos prodüksiyonu.',
+      'Ankara Tunus Caddesi’nde canlı hücum kayıt, grup provaları ve analog ses stüdyosu.',
     images: ['https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&h=630&q=85'],
   },
   alternates: {
@@ -85,7 +75,7 @@ export default function RootLayout({
       <head>
         <JsonLd settings={initialSiteSettings} />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased selection:bg-zinc-950 selection:text-white">
+      <body className="min-h-screen bg-[#0F1012] text-[#FAF8F5] antialiased selection:bg-[#E26D4B] selection:text-white">
         {children}
       </body>
     </html>

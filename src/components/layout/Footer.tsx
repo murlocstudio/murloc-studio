@@ -1,7 +1,10 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { Disc, ArrowUp, Instagram, Youtube, Music, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { ArrowUp, Instagram, Music, MapPin, Phone, Mail, Clock, Lock } from 'lucide-react';
 import { SiteSettings } from '@/types/database';
+import { MurlocLogo } from '@/components/ui/MurlocLogo';
 
 interface FooterProps {
   settings: SiteSettings;
@@ -15,155 +18,108 @@ export const Footer: React.FC<FooterProps> = ({ settings }) => {
   };
 
   return (
-    <footer className="bg-zinc-950 text-zinc-300 border-t border-zinc-800 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-zinc-800/80">
-          {/* Col 1 & 2: Brand & Description */}
-          <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-white text-zinc-950 flex items-center justify-center font-bold">
-                <Disc className="w-4 h-4 text-red-600 animate-spin" style={{ animationDuration: '8s' }} />
-              </div>
-              <span className="text-xl font-bold tracking-tight text-white uppercase font-display">
-                Murloc Studio
-              </span>
-            </div>
-            <p className="text-sm text-zinc-400 max-w-sm leading-relaxed">
-              Murloc Studio, müzik yapımcıları, bağımsız sanatçılar ve ses profesyonelleri için en yüksek kalitede analog ve dijital kayıt, miksaj, mastering ve Dolby Atmos hizmetleri sunar.
+    <footer className="bg-[#090A0B] text-[#FAF8F5] border-t border-white/10 pt-16 pb-12 font-mono">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+          {/* Brand */}
+          <div className="md:col-span-5 space-y-4">
+            <MurlocLogo size={46} showText={true} textColor="#FAF8F5" />
+            <p className="text-xs text-[#FAF8F5]/60 max-w-sm leading-relaxed pt-2">
+              Ankara Tunus Caddesi'nde canlı hücum kayıt, grup provaları, analog miksaj ve profesyonel ses mühendisliği.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              {settings.instagram_url && (
-                <a
-                  href={settings.instagram_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-              )}
+              <a
+                href={settings.instagram_url || 'https://instagram.com/studiomurloc'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-[#16171A] border border-white/10 flex items-center justify-center text-[#FAF8F5]/70 hover:text-[#E26D4B] hover:border-[#E26D4B] transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
               {settings.spotify_url && (
                 <a
                   href={settings.spotify_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+                  className="w-9 h-9 rounded-full bg-[#16171A] border border-white/10 flex items-center justify-center text-[#FAF8F5]/70 hover:text-[#4A8B9E] hover:border-[#4A8B9E] transition-colors"
                   aria-label="Spotify"
                 >
                   <Music className="w-4 h-4" />
                 </a>
               )}
-              {settings.youtube_url && (
-                <a
-                  href={settings.youtube_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-4 h-4" />
-                </a>
-              )}
             </div>
           </div>
 
-          {/* Col 3: Quick Navigation */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
-              Bölümler
+          {/* Quick Nav */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs uppercase tracking-widest text-[#E26D4B] font-bold">
+              BÖLÜMLER
             </h4>
-            <ul className="space-y-2 text-sm">
+            <ul className="space-y-2 text-xs text-[#FAF8F5]/70">
               <li>
-                <Link href="#studios" className="hover:text-white transition-colors">
+                <Link href="#studios" className="hover:text-[#FAF8F5] transition-colors">
                   Stüdyo Odaları
                 </Link>
               </li>
               <li>
-                <Link href="#equipment" className="hover:text-white transition-colors">
-                  Ekipman Parkuru
+                <Link href="#rates" className="hover:text-[#FAF8F5] transition-colors">
+                  Saatlik Oda Ücretleri
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="hover:text-white transition-colors">
-                  Hizmetler & Fiyatlar
+                <Link href="#equipment" className="hover:text-[#FAF8F5] transition-colors">
+                  Donanım & Amfiler
                 </Link>
               </li>
               <li>
-                <Link href="#catalog" className="hover:text-white transition-colors">
-                  Sanatçı Portfolyosu
+                <Link href="#story" className="hover:text-[#FAF8F5] transition-colors">
+                  Murloc Hikayesi
                 </Link>
               </li>
               <li>
-                <Link href="#story" className="hover:text-white transition-colors">
-                  Akustik Felsefe
-                </Link>
-              </li>
-              <li>
-                <Link href="#location" className="hover:text-white transition-colors">
-                  Konum & Ulaşım
+                <Link href="#location" className="hover:text-[#FAF8F5] transition-colors">
+                  Konum & Randevu
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Services */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
-              Hizmetlerimiz
+          {/* Contact Details */}
+          <div className="md:col-span-4 space-y-3">
+            <h4 className="text-xs uppercase tracking-widest text-[#4A8B9E] font-bold">
+              STÜDYO İLETİŞİM
             </h4>
-            <ul className="space-y-2 text-sm text-zinc-400">
-              <li>Canlı Hücum & Vokal Kaydı</li>
-              <li>SSL Analog Miksaj</li>
-              <li>7.1.4 Dolby Atmos Prodüksiyon</li>
-              <li>Analog Mastering Zinciri</li>
-              <li>4K Podcast Çekimi & Kurgu</li>
-              <li>Ekipman & Backline Kiralama</li>
-            </ul>
-          </div>
-
-          {/* Col 5: Contact & Hours */}
-          <div className="space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400 font-semibold">
-              Stüdyo İletişim
-            </h4>
-            <div className="space-y-2.5 text-xs text-zinc-400">
+            <div className="space-y-2 text-xs text-[#FAF8F5]/70">
               <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-zinc-500 shrink-0 mt-0.5" />
-                <span>{settings.address}</span>
+                <MapPin className="w-3.5 h-3.5 text-[#E26D4B] shrink-0 mt-0.5" />
+                <span>{settings.address || 'Kavaklıdere Mah. Tunus Cad. No: 14/5, Çankaya / Ankara'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-                <a href={`tel:${settings.phone}`} className="hover:text-white">
-                  {settings.phone}
-                </a>
+                <Clock className="w-3.5 h-3.5 text-[#4A8B9E] shrink-0" />
+                <span>{settings.working_hours || 'Haftanın 7 Günü: 10:00 - 02:00'}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
-                <a href={`mailto:${settings.email}`} className="hover:text-white">
-                  {settings.email}
-                </a>
-              </div>
-              <div className="flex items-start gap-2 pt-1 border-t border-zinc-900">
-                <Clock className="w-3.5 h-3.5 text-zinc-500 shrink-0 mt-0.5" />
-                <span>{settings.working_hours}</span>
+                <Mail className="w-3.5 h-3.5 text-white/50 shrink-0" />
+                <span>{settings.email || 'studiomurloc@gmail.com'}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
-          <div className="flex items-center gap-4 flex-wrap">
-            <span>© {currentYear} Murloc Studio (murlocstudio). Tüm hakları saklıdır.</span>
-            <span className="hidden sm:inline">•</span>
-            <Link href="/admin" className="hover:text-zinc-400 font-mono transition-colors">
-              CMS Admin Girişi
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF8F5]/40">
+          <div className="flex items-center gap-3">
+            <span>© {currentYear} Murloc Music Studio. Ankara.</span>
+            <span>•</span>
+            <Link href="/admin" className="hover:text-[#FAF8F5] transition-colors flex items-center gap-1">
+              <Lock className="w-3 h-3" />
+              <span>CMS Girişi</span>
             </Link>
           </div>
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 hover:text-zinc-300 transition-colors p-1"
+            className="flex items-center gap-1.5 hover:text-[#FAF8F5] transition-colors"
           >
             <span>Başa Dön</span>
             <ArrowUp className="w-3.5 h-3.5" />

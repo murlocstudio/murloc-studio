@@ -12,26 +12,26 @@ export const JsonLd: React.FC<JsonLdProps> = ({ settings }) => {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'MusicVenue', 'ProfessionalService'],
     '@id': `${siteUrl}/#business`,
-    name: 'Murloc Studio',
-    alternateName: 'murlocstudio',
-    description: settings.hero_subheadline || 'İstanbul Beşiktaş merkezli profesyonel ses kayıt, analog mixing, mastering, prova ve podcast stüdyosu.',
+    name: 'Murloc Music Studio',
+    alternateName: ['studiomurloc', 'Murloc Studio'],
+    description: 'Ankara Çankaya Kavaklıdere Tunus Caddesi merkezli profesyonel ses kayıt, prova ve analog prodüksiyon stüdyosu.',
     url: siteUrl,
-    telephone: settings.phone || '+90 212 555 0199',
-    email: settings.email || 'info@murlocstudio.com',
-    priceRange: '₺₺ - ₺₺₺',
+    telephone: settings.phone || '+90 530 000 00 00',
+    email: settings.email || 'studiomurloc@gmail.com',
+    priceRange: '₺₺',
     image: settings.hero_image_url,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Levazım Mah. Korukent Sitesi No: 42/B',
-      addressLocality: 'Beşiktaş',
-      addressRegion: 'İstanbul',
-      postalCode: '34340',
+      streetAddress: 'Kavaklıdere Mah. Tunus Cad. No: 14/5',
+      addressLocality: 'Çankaya',
+      addressRegion: 'Ankara',
+      postalCode: '06680',
       addressCountry: 'TR',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 41.06789,
-      longitude: 29.01234,
+      latitude: 39.91234,
+      longitude: 32.85501,
     },
     openingHoursSpecification: [
       {
@@ -50,48 +50,10 @@ export const JsonLd: React.FC<JsonLdProps> = ({ settings }) => {
       },
     ],
     sameAs: [
-      settings.instagram_url,
+      'https://instagram.com/studiomurloc',
       settings.spotify_url,
       settings.youtube_url,
     ].filter(Boolean),
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Murloc Studio Hizmetleri',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Müzik ve Vokal Kaydı',
-            description: 'SSL 4000E ve Neve analog preamplifikatörler ile profesyonel vokal ve canlı hücum stüdyo kaydı.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Mixing & Dolby Atmos Prodüksiyon',
-            description: 'Analog & dijital miksaj ve 7.1.4 Dolby Atmos miks hazırlığı.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Analog Audio Mastering',
-            description: 'Spotify, Apple Music ve Plak için Manley ve Dangerous Music analog mastering zinciri.',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: '4K Çok Kameralı Podcast Stüdyosu',
-            description: 'Shure SM7B ve Blackmagic 4K kameralar ile video ve ses prodüksiyonu.',
-          },
-        },
-      ],
-    },
   };
 
   return (
