@@ -29,7 +29,7 @@ export const OnePageStudioClient: React.FC<OnePageStudioClientProps> = ({ initia
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0F1012] text-[#FAF8F5] selection:bg-[#E26D4B] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-[#0F1012] selection:bg-[#E26D4B] selection:text-white">
       {/* Sticky Header */}
       <Navbar settings={settings} />
 

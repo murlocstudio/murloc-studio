@@ -4,7 +4,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { initialSiteSettings } from '@/lib/data/mock-data';
 
 export const viewport: Viewport = {
-  themeColor: '#0F1012',
+  themeColor: '#FFFFFF',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
@@ -75,7 +75,7 @@ export default function RootLayout({
       <head>
         <JsonLd settings={initialSiteSettings} />
       </head>
-      <body className="min-h-screen bg-[#0F1012] text-[#FAF8F5] antialiased selection:bg-[#E26D4B] selection:text-white">
+      <body className="min-h-screen bg-white text-[#0F1012] antialiased selection:bg-[#E26D4B] selection:text-white">
         {children}
       </body>
     </html>

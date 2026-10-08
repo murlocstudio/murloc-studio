@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: #0f1012;
-    --foreground: #faf8f5;
+    --background: #ffffff;
+    --foreground: #0f1012;
 
-    --surface: #16171a;
-    --surface-card: #1c1d22;
-    --surface-muted: #24262b;
-    --surface-border: #2a2d34;
+    --surface: #ffffff;
+    --surface-card: #ffffff;
+    --surface-muted: #f4f5f7;
+    --surface-border: #e5e7eb;
 
     --murloc-coral: #e26d4b;
     --murloc-teal: #4a8b9e;
-    --murloc-cream: #faf8f5;
+    --murloc-charcoal: #0f1012;
   }
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -30,18 +30,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sound City Style Custom Scrollbar */
+/* Sound City Style Custom Scrollbar (Light Editorial) */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f1012;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2d34;
+  background: #d1d5db;
   border-radius: 4px;
 }
 
@@ -49,9 +49,9 @@ body {
   background: #e26d4b;
 }
 
-/* Authentic Studio Tape Noise & Vintage Screen Overlay */
+/* Subtle Editorial Grid */
 .vintage-overlay {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 0);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
@@ -60,9 +60,4 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Impact", "Bebas Neue", "Arial Black", sans-serif;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-}
-
-/* Clean Sound City Section Divider */
-.studio-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
